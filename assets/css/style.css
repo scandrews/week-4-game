@@ -1,0 +1,51 @@
+<style>
+body{
+}
+
+h1{
+	margin: 10px 2px 1px 550px;
+	color: white;
+	font-style: bold;
+}
+
+h2{
+	margin-top: 2px;
+	color: white;
+	font-style: bold;
+}
+
+
+.container{
+	background: url(../images/starwars.jpg);
+	height: 864px width: 1536;
+}	
+
+#toppicBlock #avalibleToFightBlock #fightBlock{
+	margin: 15px;
+	height: 160;
+	float: left;
+	padding: 2px;
+}
+
+.charrow .fightrow{
+
+}
+.characterBlocs{
+	border: 2px solid green;
+	background-color: white;
+	height: 190px;
+	float: left;
+	margin: 2px;
+	padding: 2px;
+	text-align: center;
+}
+
+#baseCharStruct{
+	text-align: center;
+}
+
+.picblocs{
+	padding: 2px;
+}
+
+</style>

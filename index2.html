@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Star Wars Game</title>
+
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+			integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+			crossorigin="anonymous">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="javascript" href="assets/javascript/reset.css">
+		<link rel="javascript" href="assets/javascript/game.js">
+</head>
+
+<body>
+	<div class="container">
+	<h1>Star Wars RPG!</h1>
+
+	<div id="toppicBlock" class="col-md-12">
+		<div class="row">
+			<button id="charactor-1" class="characterBlocs col-md-2" value="0"></button>
+			<button id="charactor-2" class="characterBlocs col-md-2" value="1"></button>
+			<button id="charactor-3" class="characterBlocs col-md-2" value="2"></button>
+			<button id="charactor-4" class="characterBlocs col-md-2" value="3"></button>
+		</div>
+	</div>
+	<h2>My Character</h2>
+	<div id="fightBlock" class="col-md-12">
+		<div class="row">
+			<button id="charactor-5" class="characterBlocs col-md-2" value="4"></button>
+			<button id="character-6" class="characterBlocs col-md-2" value="5"></button>
+		</div>
+	</div>
+	
+</container>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function() {
+
+	var myCharactor = -1;
+	var fightCharactor = -1;
+
+	var characters = [
+		yoda = {
+			name: "yoda",
+			src: "assets/images/yoda.jpg",
+			health: 125,
+			attackPower:150
+		},
+
+		darthmaul = {
+			name: "Darthmaul",
+			src: "assets/images/darthmaul.jpg",
+			health: 100,
+			attackPower:150
+		},
+
+		hansolo = {
+			name: "Hansolo",
+			src: "assets/images/hansolo.jpg",
+			health: 115,
+			attackPower: 150,
+		},
+
+		stormtrouper = {
+			name: "Stormtrouper",
+			src: "assets/images/stormtrouper.jpg",
+			health: 90,
+			attackPower: 150,
+		}
+	]
+
+	// This function displays each charactor block
+		// Input: the caractor to display
+				//The index of the charactor
+		function displayChar (localdiv, a){
+			console.log("display " + characters[a].name + " in division - " + localdiv);
+    	    $(localdiv).append("<p>" + characters[a].name + "</p><p><img src=" + characters[a].src + " alt='some char' style='height: 120px; width: 140px'></p><p>" + characters[a].health + "</p>");
+	    }
+
+		displayChar("#charactor-1", 0);
+		displayChar("#charactor-2", 1);
+		displayChar("#charactor-3", 2);
+		displayChar("#charactor-4", 3);
+
+
+	$(".characterBlocs").on("click", function(){
+		if (fightCharactor > -1){
+			if (myCharactor < 0){
+    	        myCharactor = this.value;
+        	    console.log("My char is - " + myCharactor);
+				displayChar("#charactor-5", myCharactor);
+	            }
+    	        else{
+        	    	fightCharactor = this.value;
+					console.log("fight char is - " + fightCharactor);
+					displayChar("#charactor-6", fightCharactor);
+    	        }
+			}
+			else{
+
+
+			}
+    });
+
+//	$("#characterBlocs2").on("click", function(){
+//		if (myCharactor == null){
+  //          var myCharactor = this.value;
+//            console.log("current char is " + myCharactor);
+//            dispMyChar();
+//            }
+//            else{
+//            	var fightCharactor = this.value
+//				console.log("fight char is " + fightCharactor);
+//		    	dispFightChar();
+//            }
+//    });
+//	$("#characterBlocs3").on("click", function(){
+//		if (myCharactor == null){
+//            var myCharactor = this.value;
+//            console.log("current char is " + myCharactor);
+//            dispMyChar();
+//            }
+//            else{
+//            	var fightCharactor = this.value
+//				console.log("current char is " + fightCharactor);
+// 		    	dispFightChar();
+//            }
+//    });
+//	$("#characterBlocs4").on("click", function(){
+//		if (myCharactor == null){
+//            var myCharactor = this.value;
+//            console.log("current char is " + myCharactor);
+//            dispMyChar();
+//    	    }
+//            else{
+//            	var fightCharactor = this.value
+//				console.log("current char is " + fightCharactor);
+// 		    	dispFightChar();
+//	            }
+//    });
+
+//		displayChar("characterBlock5", myCharactor);
+//		displayChar("characterBlock6", fightCharactor);
+
+        
+    
+
+
+
+
+
+
+	});
+	</script>
+</body>
+</html>

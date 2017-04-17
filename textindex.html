@@ -1,0 +1,35 @@
+
+
+
+
+	<script type="text/javascript">
+	   $(document).ready(function() {
+
+
+	var charnames = [
+			"yoda",
+			"darthmaul",
+			"hansolo",
+			"stormtrouper",
+		];
+
+	var charpics = [
+			"assets/images/yoda.jpg",
+			"assets/images/darthmaul.jpg",
+			"assets/images/hansolo.jpg",
+			"assets/images/stormtrouper.jpg"
+		];
+
+	var charhealth = [
+			125,
+			125,
+			130,
+			110,
+		];
+
+	for (var i=0; i<charnames.length; i++)
+		characters[i] = [
+				name: charnames[i],
+				src: charpics[i],
+				health: charhealth[i] 
+		]
