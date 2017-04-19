@@ -9,9 +9,28 @@ h1{
 }
 
 h2{
-	margin: 2px 0px 0px 15px;
+	margin: 0px 0px 0px 15px;
 	color: white;
 	font-style: bold;
+}
+
+#topMessage{
+	margin: 2px 0px 0px 15px;
+	color: white;
+	font-size: 30px;
+	font-style: bold;	
+}
+
+#gameOverBlock{
+	border: 2px solid blue;
+	height: 190px;
+	float: left;
+	margin: 2px 2px 2px 200px;
+	padding: 2px;
+	background: none;
+	color: white;
+	font-size: 30px;
+	font-style: bold;	
 }
 
 .button{
