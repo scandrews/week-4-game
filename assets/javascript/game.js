@@ -12,8 +12,8 @@ $(document).ready(function() {
 			name: "yoda",
 			src: "assets/images/yoda.jpg",
 			health: 125,
-			attackPower: 15,
-			counterAttackPower: 18,
+			attackPower: 8,
+			counterAttackPower: 15,
 			division: "'charactorRow0"
 		},
 
@@ -21,8 +21,8 @@ $(document).ready(function() {
 			name: "Darthmaul",
 			src: "assets/images/darthmaul.jpg",
 			health: 100,
-			attackPower:12,
-			counterAttackPower: 10,
+			attackPower: 5,
+			counterAttackPower: 13,
 			division: "'charactorRow1"
 		},
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
 			name: "Hansolo",
 			src: "assets/images/hansolo.jpg",
 			health: 115,
-			attackPower: 10,
+			attackPower: 5,
 			counterAttackPower: 12,
 			division: "'charactorRow2"
 		},
@@ -39,8 +39,8 @@ $(document).ready(function() {
 			name: "Stormtrouper",
 			src: "assets/images/stormtrouper.jpg",
 			health: 90,
-			attackPower: 7,
-			counterAttackPower: 5,
+			attackPower: 3,
+			counterAttackPower: 10,
 			division: "'charactorRow3"
 		}
 	]
@@ -184,7 +184,7 @@ $(document).ready(function() {
 		}
 		if (myCharactor == 3){
 			$(".charactorRow3").remove();
-			$("$gameOverBlock").remove();
+			$("#gameOverBlock").remove();
 		}
 		if (fightCharactor == 0){
 			$(".charactorRow0").remove();
