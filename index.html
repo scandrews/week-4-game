@@ -9,22 +9,19 @@
     	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.js">
     	</script>
 
+		<link type="text/css" rel="stylesheet" src="assets/css/reset.css"> 
 		<link rel="stylesheet"
 			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 			integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 			crossorigin="anonymous">
-		<link rel="javascript" href="assets/javascript/reset.css">
 		<link rel="stylesheet" href="assets/css/style.css">
-		<link rel="javascript" href="assets/javascript/game.js">
 </head>
 
 <body>
-	<div class="container">
+<div class="container">
 	<h1>Star Wars RPG!</h1>
 
-	<div id="toppicBlock" class="col-md-12">
-		<div class="charrow row">
-		</div>
+	<div id="topPicBlock" class="col-md-12">
 	</div>
 	<div id="avalibleToFightBlock" class="col-md-12">
 		<div class="avalibleToFightrow row">
@@ -41,115 +38,6 @@
 	
 </container>
 
-	<script type="text/javascript">
-	   $(document).ready(function() {
-
-
-	var myCharactor = -1;
-	var fightCharactor = -1;
-	var a = -1;
-
-	var characters = [
-		yoda = {
-			name: "yoda",
-			src: "assets/images/yoda.jpg",
-			health: 125,
-			attackPower:150
-		},
-
-		darthmaul = {
-			name: "Darthmaul",
-			src: "assets/images/darthmaul.jpg",
-			health: 100,
-			attackPower:150
-		},
-
-		hansolo = {
-			name: "Hansolo",
-			src: "assets/images/hansolo.jpg",
-			health: 115,
-			attackPower: 150,
-		},
-
-		stormtrouper = {
-			name: "Stormtrouper",
-			src: "assets/images/stormtrouper.jpg",
-			health: 90,
-			attackPower: 150,
-		}
-	]
-
-	// This function displays each charactor block
-		// Input:   The division into which the charator is to be displayed
-		//			The index of the charactor in the charators object
-	function displayChar (localdiv, a){
-		console.log("in displaychar curent charactor - " + characters[a].name);
-        $(localdiv).append("<button class='characterBlocs col-md-2' value=" + a + "><p>" + characters[a].name + "</p><p><img src=" + characters[a].src + " alt='some char' style='height: 120px; width: 140px'></p><p>" + characters[a].health + "</p></button>");
-    }
-
-    function displayline (localdiv, text){
-    	$(localdiv).append("<h2>" + text + "</h2>");
-    }
-
-    // Set up loop, displaying a charator with each loop
-	for (var i=0; i < characters.length; i++){
-		displayChar(".charrow", i);
-		}
-
-	//  mouse click handler for chosing charators to play
-	$(".characterBlocs").on("click", function(){
-		console.log("click was " + this.value);
-		if (myCharactor < 0){
-			// on initial pick of my charactor
-            myCharactor = this.value;
-//            fightCharactor = 3;
-			$(".characterBlocs").remove();
-			displayline(".charrow", "My Character");
-			displayChar(".charrow", myCharactor);
-			displayline(".avalibleToFightrow", "Enemies Available To Attack")
-			for (var b=0; b < characters.length; b++){
-				if (b != myCharactor){
-					displayChar(".avalibleToFightrow", b);
-					}
-				}			
-			}
-			// subsequent pick of fight charcter
-			else{
-//				console.log("second click was " + this.value);
-		      	fightCharactor = this.value;
-				$(".avalibleToFightrow").empty();
-				displayline(".avalibleToFightrow", "Enemies Available To Attack")
-				for (var b=0; b < characters.length; b++){
-					if ((b != myCharactor) && (b != fightCharactor)){
-						displayChar(".avalibleToFightrow", b);
-						}
-					}			
-				displayChar(".fightRow", fightCharactor);
-			}
-	    });
-    //	end chosing charators handler
-
-    $(".button").on("click", function(){
-		console.log("click was " + this.value);
-		characters[myCharactor].health = characters[myCharactor].health - 10;
-		characters[fightCharactor].health = characters[fightCharactor].health + 10;
-		$( ".characterBlocs" ).remove();
-		console.log("in button click my character is " + myCharactor);
-		console.log("in button click fight character is " + fightCharactor);
-		displayChar(".charrow", myCharactor);
-				for (var b=0; b < characters.length; b++){
-					if ((b != myCharactor) && (b != fightCharactor)){
-						displayChar(".avalibleToFightrow", b);
-						}
-					}			
-		displayChar(".fightRow", fightCharactor);
-		});	
-
-
-
-
-
-	});
-	</script>
+	<script type="text/javascript" rel="javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>
