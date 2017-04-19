@@ -3,13 +3,13 @@ body{
 }
 
 h1{
-	margin: 10px 2px 1px 550px;
+	margin: 10px 2px 1px 450px;
 	color: white;
 	font-style: bold;
 }
 
 h2{
-	margin: 0px 0px 0px 15px;
+	margin: 0px 0px 0px 0px;
 	color: white;
 	font-style: bold;
 }
@@ -22,10 +22,9 @@ h2{
 }
 
 #gameOverBlock{
-	border: 2px solid blue;
 	height: 190px;
 	float: left;
-	margin: 2px 2px 2px 200px;
+	margin: 2px 2px 2px 2px;
 	padding: 2px;
 	background: none;
 	color: white;
@@ -42,7 +41,7 @@ h2{
 	height: 864px width: 1536;
 }	
 
-#toppicBlock #avalibleToFightBlock #fightBlock{
+#topPicBlock #avalibleToFightBlock #fightBlock{
 	margin: 15px;
 	height: 160;
 	float: left;

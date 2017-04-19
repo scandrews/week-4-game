@@ -1,8 +1,11 @@
 $(document).ready(function() {
+// var playGame = true;
+// while (playGame == false){
 
 	var myCharactor = -1;
 	var fightCharactor = -1;
 	var a = -1;
+	var wincount = 0;
 
 	var characters = [
 		yoda = {
@@ -61,7 +64,6 @@ $(document).ready(function() {
 		displayChar(i);
 		}
 
-	$(topPicBlock).append("<button id='gameOverBlock'></button>");
 
 	//  mouse click handler for chosing charators to play
 	$(".characterBlocs").on("click", function(){
@@ -90,6 +92,9 @@ $(document).ready(function() {
 			$("#topMessage").text("My Character");
 			$("#topPicBlock").append(characters[myCharactor]);
 			}
+			// build a box for game status messages
+			$(topPicBlock).append("<div id='gameOverBlock'></div>");
+
 		}
 			// subsequent pick of fight charcter
 			else{ if (fightCharactor >0){
@@ -139,6 +144,9 @@ $(document).ready(function() {
 	});
     //	end chosing charators handler
 
+    //
+    // process an attack key press here
+    //
     	// This function updates characters on the screen
     	//		Input:  target class
     	//				character to update
@@ -147,8 +155,13 @@ $(document).ready(function() {
         $(localdiv).append("<button class=" + characters[c].division + " characterBlocs' value=" + c + "><p>" + characters[c].name + "</p><p><img src=" + characters[c].src + " alt='some char' style='height: 120px; width: 140px'></p><p>" + characters[c].health + "</p></button>");
     }
 
-    // process an attack key press here
+    // attack button was pressed
     $(".button").on("click", function(){
+    	// should we restart the game
+    	// if(this.value == 9){
+    	// 	playGame = false;
+    	// 	}
+  
 		characters[fightCharactor].health = characters[fightCharactor].health - characters[myCharactor].attackPower;
 		characters[myCharactor].attackPower = characters[myCharactor].attackPower + 6;
 		
@@ -159,15 +172,19 @@ $(document).ready(function() {
 		// this section writes the updated characters to the screen
 		if (myCharactor == 0){
 			$(".charactorRow0").remove();
+			$("#gameOverBlock").remove();
 		}
 		if (myCharactor == 1){
 			$(".charactorRow1").remove();
+			$("#gameOverBlock").remove();
 		}
 		if (myCharactor == 2){
 			$(".charactorRow2").remove();
+			$("#gameOverBlock").remove();
 		}
 		if (myCharactor == 3){
 			$(".charactorRow3").remove();
+			$("$gameOverBlock").remove();
 		}
 		if (fightCharactor == 0){
 			$(".charactorRow0").remove();
@@ -182,33 +199,44 @@ $(document).ready(function() {
 			$(".charactorRow3").remove();
 		}
 		updateChar ("#topPicBlock", myCharactor);
+		$(topPicBlock).append("<div id='gameOverBlock'></div>");
 		updateChar ("#fightBlock", fightCharactor);
 
-		// this section check for a loser
-
+		// this section check to see if I lost
 		if(characters[myCharactor].health < 1){
 	    	$("#topMessage").text("You Lost, Sorry");
-
 			var html = "<p>Would You Like To Play Again?</p>";
 				document.querySelector("#gameOverBlock").innerHTML = html;
+	    	$("#gameOverBlock").append("<div class='button btn btn-default' value='9'>Play Again</div>");
 
 
 	    	// $("#topPicBlock").append("<div> class='col-md-8' id='topMessage' Would you like to play again?</div>");
-	    	$("#gameOverBlock").append("<button class='button btn btn-default' value='9'>Play Again</button>");
 
 			// $("#topPicBlock").append(characters[myCharactor]);
 		}
+		// This section checks to see if I won
 		if(characters[fightCharactor].health < 1){
-			var html = "<h2>You Defeated</h2>" + characters[fightCharactor].name;
-				document.querySelector("#topMessage").innerHTML = html;
-			$("#topMessage").append("<h2>Choose Someone to Fight Next</h2>");
+			wincount = wincount + 1;
+			console.log("your win count is " + wincount);
+			if (wincount < characters.length - 1){
+				var html = "<h2>You Defeated " + characters[fightCharactor].name + "</h2>";
+					document.querySelector("#topMessage").innerHTML = html;
+				$("#topMessage").append("<h2>Choose Someone to Fight Next</h2>");
+				}
+				else{
+			    	$("#topMessage").text("Congratulations, You Won");
+					var html = "<p>Would You Like To Play Again?</p>";
+						document.querySelector("#gameOverBlock").innerHTML = html;
+	    			$("#gameOverBlock").append("<button class='button btn btn-default' value='9'>Play Again</button>");
 
+				}
 		}
 
 	});	
     // end attack key press handling
 
-
+//end game and start again
+// }
 
 // close document ready
 });
