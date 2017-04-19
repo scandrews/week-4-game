@@ -9,11 +9,14 @@ h1{
 }
 
 h2{
-	margin-top: 2px;
+	margin: 2px 0px 0px 15px;
 	color: white;
 	font-style: bold;
 }
 
+.button{
+	margin-left: 15px;
+}
 
 .container{
 	background: url(../images/starwars.jpg);
